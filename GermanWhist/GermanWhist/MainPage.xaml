@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:GermanWhist"
+             x:Class="GermanWhist.MainPage"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit">
+    <ContentPage.BindingContext>
+        <local:GameViewModel/>
+    </ContentPage.BindingContext>
+    <Grid x:Name="stack" RowSpacing="0" ColumnSpacing="0" RowDefinitions="1*, 2.5*, 1*">
+        <Grid.Resources>
+            <ResourceDictionary>
+                <local:SelectionChangedEventArgsConverter x:Key="SelectionChangedEventArgsConverter"/>
+                <local:WidthConverter x:Key="WidthConverter"/>
+                <Style TargetType="Label">
+                    <Setter Property="TextColor" Value="Yellow"/>
+                    <Setter Property="FontSize" Value="16"/>
+                </Style>
+                <Style x:Key="regularImageStyle" TargetType="Image">
+                    <Setter Property="Margin" Value="2,0"/>
+                    <Setter Property="WidthRequest" Value="{Binding Source={x:Reference stack},Path=Width,Converter={StaticResource WidthConverter}}"/>
+                </Style>
+                <Style x:Key="imageResizingLogicStyle" TargetType="Image">
+                    <Style.Triggers>
+                        <DataTrigger TargetType="Image"
+                                 Binding="{Binding DeckIsEmpty}"
+                                 Value="true">
+                            <DataTrigger.EnterActions>
+                                <local:FadeTriggerAction StartsFrom="1"/>
+                            </DataTrigger.EnterActions>
+                            <DataTrigger.ExitActions>
+                                <local:FadeTriggerAction StartsFrom="0"/>
+                            </DataTrigger.ExitActions>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </ResourceDictionary>
+        </Grid.Resources>
+        <CollectionView BackgroundColor="Blue"
+            Grid.Row="0"
+            ItemsLayout="HorizontalList"
+            ItemsSource="{Binding CpuCards}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout Orientation="Horizontal" BackgroundColor="Blue">
+                        <Image Source="{local:ImageResource GermanWhist.img.purple_back.jpg}"
+                               Style="{StaticResource regularImageStyle}">
+                            <Image.Triggers>
+                                <DataTrigger TargetType="Image"
+                                             Binding="{Binding IsCpuSubmission.isSelected}"
+                                             Value="true">
+                                    <Setter Property="Source" Value="{Binding Image}"/>
+                                    <DataTrigger.EnterActions>
+                                        <local:FadeTriggerAction StartsFrom="0"/>
+                                    </DataTrigger.EnterActions>
+                                    <DataTrigger.ExitActions>
+                                        <local:FadeTriggerAction StartsFrom="0"/>
+                                    </DataTrigger.ExitActions>
+                                </DataTrigger>
+                            </Image.Triggers>
+                        </Image>
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        <Grid BackgroundColor="Green"
+          ColumnDefinitions="1*, Auto, Auto, 1*"
+          ColumnSpacing="0"
+          Grid.Row="1"
+          RowDefinitions="1*, 6*, 1*"
+          RowSpacing="0">
+            <StackLayout Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="0"
+                     HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                <Label Text="{Binding TrumpSuit, StringFormat='The trump suit is {0}'}"/>
+            </StackLayout>
+            <StackLayout Grid.Column="0" Grid.Row="1"
+                     HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand">
+                <Label Text="{Binding HumanScore, StringFormat='Your Score: {0:N0}'}"/>
+            </StackLayout>
+            <StackLayout Grid.Column="1" Grid.Row="1" HorizontalOptions="EndAndExpand" Orientation="Horizontal" Padding="3, 2">
+                <Image Source="{Binding TopCard.Image}" Style="{StaticResource imageResizingLogicStyle}"/>
+            </StackLayout>
+            <StackLayout Grid.Column="2" Grid.Row="1" Orientation="Horizontal" Padding="3, 2">
+                <Image Source="{local:ImageResource GermanWhist.img.purple_back.jpg}" Style="{StaticResource imageResizingLogicStyle}"/>
+            </StackLayout>
+            <StackLayout Grid.Column="3" Grid.Row="1"
+                     HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand">
+                <Label Text="{Binding CpuScore, StringFormat='Opponent Score: {0:N0}'}"/>
+            </StackLayout>
+        </Grid>
+        <CollectionView BackgroundColor="Blue"
+            Grid.Row="2"
+            ItemsLayout="HorizontalList"
+            ItemsSource="{Binding HumanCards}"
+            SelectedItem="{Binding SelectedCard, Mode=TwoWay}"
+            SelectionMode="Single">
+            <CollectionView.Behaviors>
+                <xct:EventToCommandBehavior EventName="SelectionChanged" Command="{Binding SelectedCommand}" CommandParameter="{Binding SelectedCard}"
+                                            EventArgsConverter="{StaticResource SelectionChangedEventArgsConverter}"/>
+            </CollectionView.Behaviors>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout Orientation="Horizontal">
+                        <Image Source="{Binding Image}"
+                               Style="{StaticResource regularImageStyle}"/>
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
+</ContentPage>

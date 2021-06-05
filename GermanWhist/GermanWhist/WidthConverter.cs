@@ -1,0 +1,23 @@
+﻿using System;
+using System.Globalization;
+using Xamarin.Forms;
+
+namespace GermanWhist
+{
+    public class WidthConverter : IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            var width = (double)value;
+            if (width > 0)
+            {
+                return (width / 13) - 4;
+            }
+            return 100;
+        }
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            return 0;
+        }
+    }
+}

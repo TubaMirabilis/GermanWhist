@@ -1,0 +1,154 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <LangVersion>9.0</LangVersion>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>portable</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="img\aces.jpg" />
+    <None Remove="img\back_cards-07.jpg" />
+    <None Remove="img\blue_back.jpg" />
+    <None Remove="img\Clubs10.jpg" />
+    <None Remove="img\Clubs11.jpg" />
+    <None Remove="img\Clubs12.jpg" />
+    <None Remove="img\Clubs13.jpg" />
+    <None Remove="img\Clubs14.jpg" />
+    <None Remove="img\Clubs2.jpg" />
+    <None Remove="img\Clubs3.jpg" />
+    <None Remove="img\Clubs4.jpg" />
+    <None Remove="img\Clubs5.jpg" />
+    <None Remove="img\Clubs6.jpg" />
+    <None Remove="img\Clubs7.jpg" />
+    <None Remove="img\Clubs8.jpg" />
+    <None Remove="img\Clubs9.jpg" />
+    <None Remove="img\Diamonds10.jpg" />
+    <None Remove="img\Diamonds11.jpg" />
+    <None Remove="img\Diamonds12.jpg" />
+    <None Remove="img\Diamonds13.jpg" />
+    <None Remove="img\Diamonds14.jpg" />
+    <None Remove="img\Diamonds2.jpg" />
+    <None Remove="img\Diamonds3.jpg" />
+    <None Remove="img\Diamonds4.jpg" />
+    <None Remove="img\Diamonds5.jpg" />
+    <None Remove="img\Diamonds6.jpg" />
+    <None Remove="img\Diamonds7.jpg" />
+    <None Remove="img\Diamonds8.jpg" />
+    <None Remove="img\Diamonds9.jpg" />
+    <None Remove="img\Gray_back.jpg" />
+    <None Remove="img\Green_back.jpg" />
+    <None Remove="img\Hearts10.jpg" />
+    <None Remove="img\Hearts11.jpg" />
+    <None Remove="img\Hearts12.jpg" />
+    <None Remove="img\Hearts13.jpg" />
+    <None Remove="img\Hearts14.jpg" />
+    <None Remove="img\Hearts2.jpg" />
+    <None Remove="img\Hearts3.jpg" />
+    <None Remove="img\Hearts4.jpg" />
+    <None Remove="img\Hearts5.jpg" />
+    <None Remove="img\Hearts6.jpg" />
+    <None Remove="img\Hearts7.jpg" />
+    <None Remove="img\Hearts8.jpg" />
+    <None Remove="img\Hearts9.jpg" />
+    <None Remove="img\honor_clubs.jpg" />
+    <None Remove="img\honor_diamond.jpg" />
+    <None Remove="img\honor_heart-14.jpg" />
+    <None Remove="img\honor_spade.jpg" />
+    <None Remove="img\purple_back.jpg" />
+    <None Remove="img\Red_back.jpg" />
+    <None Remove="img\Spades10.jpg" />
+    <None Remove="img\Spades11.jpg" />
+    <None Remove="img\Spades12.jpg" />
+    <None Remove="img\Spades13.jpg" />
+    <None Remove="img\Spades14.jpg" />
+    <None Remove="img\Spades2.jpg" />
+    <None Remove="img\Spades3.jpg" />
+    <None Remove="img\Spades4.jpg" />
+    <None Remove="img\Spades5.jpg" />
+    <None Remove="img\Spades6.jpg" />
+    <None Remove="img\Spades7.jpg" />
+    <None Remove="img\Spades8.jpg" />
+    <None Remove="img\Spades9.jpg" />
+    <None Remove="img\Yellow_back.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Refractored.MvvmHelpers" Version="1.6.2" />
+    <PackageReference Include="Xamarin.CommunityToolkit" Version="1.1.0" />
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="img\Clubs14.jpg" />
+    <EmbeddedResource Include="img\aces.jpg" />
+    <EmbeddedResource Include="img\Diamonds14.jpg" />
+    <EmbeddedResource Include="img\Hearts14.jpg" />
+    <EmbeddedResource Include="img\Spades14.jpg" />
+    <EmbeddedResource Include="img\back_cards-07.jpg" />
+    <EmbeddedResource Include="img\blue_back.jpg" />
+    <EmbeddedResource Include="img\Clubs10.jpg" />
+    <EmbeddedResource Include="img\Clubs2.jpg" />
+    <EmbeddedResource Include="img\Clubs3.jpg" />
+    <EmbeddedResource Include="img\Clubs4.jpg" />
+    <EmbeddedResource Include="img\Clubs5.jpg" />
+    <EmbeddedResource Include="img\Clubs6.jpg" />
+    <EmbeddedResource Include="img\Clubs7.jpg" />
+    <EmbeddedResource Include="img\Clubs8.jpg" />
+    <EmbeddedResource Include="img\Clubs9.jpg" />
+    <EmbeddedResource Include="img\Diamonds10.jpg" />
+    <EmbeddedResource Include="img\Diamonds2.jpg" />
+    <EmbeddedResource Include="img\Diamonds3.jpg" />
+    <EmbeddedResource Include="img\Diamonds4.jpg" />
+    <EmbeddedResource Include="img\Diamonds5.jpg" />
+    <EmbeddedResource Include="img\Diamonds6.jpg" />
+    <EmbeddedResource Include="img\Diamonds7.jpg" />
+    <EmbeddedResource Include="img\Diamonds8.jpg" />
+    <EmbeddedResource Include="img\Diamonds9.jpg" />
+    <EmbeddedResource Include="img\Gray_back.jpg" />
+    <EmbeddedResource Include="img\Green_back.jpg" />
+    <EmbeddedResource Include="img\Hearts10.jpg" />
+    <EmbeddedResource Include="img\Hearts2.jpg" />
+    <EmbeddedResource Include="img\Hearts3.jpg" />
+    <EmbeddedResource Include="img\Hearts4.jpg" />
+    <EmbeddedResource Include="img\Hearts5.jpg" />
+    <EmbeddedResource Include="img\Hearts6.jpg" />
+    <EmbeddedResource Include="img\Hearts7.jpg" />
+    <EmbeddedResource Include="img\Hearts8.jpg" />
+    <EmbeddedResource Include="img\Hearts9.jpg" />
+    <EmbeddedResource Include="img\honor_clubs.jpg" />
+    <EmbeddedResource Include="img\honor_diamond.jpg" />
+    <EmbeddedResource Include="img\honor_heart-14.jpg" />
+    <EmbeddedResource Include="img\honor_spade.jpg" />
+    <EmbeddedResource Include="img\Clubs11.jpg" />
+    <EmbeddedResource Include="img\Diamonds11.jpg" />
+    <EmbeddedResource Include="img\Hearts11.jpg" />
+    <EmbeddedResource Include="img\Spades11.jpg" />
+    <EmbeddedResource Include="img\Clubs13.jpg" />
+    <EmbeddedResource Include="img\Diamonds13.jpg" />
+    <EmbeddedResource Include="img\Hearts13.jpg" />
+    <EmbeddedResource Include="img\Spades13.jpg" />
+    <EmbeddedResource Include="img\purple_back.jpg" />
+    <EmbeddedResource Include="img\Clubs12.jpg" />
+    <EmbeddedResource Include="img\Diamonds12.jpg" />
+    <EmbeddedResource Include="img\Hearts12.jpg" />
+    <EmbeddedResource Include="img\Spades12.jpg" />
+    <EmbeddedResource Include="img\Red_back.jpg" />
+    <EmbeddedResource Include="img\Spades10.jpg" />
+    <EmbeddedResource Include="img\Spades2.jpg" />
+    <EmbeddedResource Include="img\Spades3.jpg" />
+    <EmbeddedResource Include="img\Spades4.jpg" />
+    <EmbeddedResource Include="img\Spades5.jpg" />
+    <EmbeddedResource Include="img\Spades6.jpg" />
+    <EmbeddedResource Include="img\Spades7.jpg" />
+    <EmbeddedResource Include="img\Spades8.jpg" />
+    <EmbeddedResource Include="img\Spades9.jpg" />
+    <EmbeddedResource Include="img\Yellow_back.jpg" />
+  </ItemGroup>
+</Project>
